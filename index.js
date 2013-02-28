@@ -8,10 +8,9 @@
  * @api private
  */
 var fire = function () {
-    var self = this;
-    self.processor({ queue: self.queue,
-                     last: self.queue[self.queue.length - 1] });
-    self.queue = [];
+    this.processor({ queue: this.queue,
+                     last: this.queue[this.queue.length - 1] });
+    this.queue = [];
 };
 
 /**
@@ -37,11 +36,11 @@ var Limiter = function (interval, processor) {
  */
 Limiter.prototype.event = function (data) {
     var self = this;
-    self.queue.push(data);
-    if (!self.pushing) {
-        fire.call(self);
+    this.queue.push(data);
+    if (!this.pushing) {
+        fire.call(this);
         // set up interval to process data queue periodically
-        self.pushing = setInterval(function () {
+        this.pushing = setInterval(function () {
             if (self.queue.length) {
                 fire.call(self);
             } else {
@@ -49,7 +48,7 @@ Limiter.prototype.event = function (data) {
                 clearInterval(self.pushing);
                 delete self.pushing;
             }
-        }, self.interval);
+        }, this.interval);
     }
 };
 
