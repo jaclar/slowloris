@@ -12,7 +12,7 @@ var l = new Limiter(500, function (d) {
 var inter = setInterval(function () {
     l.event(counter);
     counter += 1;
-    if (counter > 1200) {
+    if (counter > 350) {
         clearInterval(inter);
     }
 }, 10);
