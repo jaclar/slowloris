@@ -5,16 +5,15 @@
 /**
  * Helper function to call the processor and clean up the queue.
  *
- * The processor is called passing through the following object:
+ * The processor is called passing through the following parameters:
  *
- *   { queue: array all events received and queued since the last call,
- *     last: last element of the array }
+ *   queue: array of all events received and queued since the last call,
+ *   last: last element of the array.
  *
  * @api private
  */
 var fire = function () {
-    this.processor({ queue: this.queue,
-                     last: this.queue[this.queue.length - 1] });
+    this.processor(this.queue, this.queue[this.queue.length - 1]);
     this.queue = [];
 };
 
