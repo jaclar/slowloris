@@ -1,0 +1,11 @@
+{   "name" : "slowloris",
+    "version" : "0.1.0",
+    "description" : "Events rate limiter and bulk processor",
+    "keywords" : [ "events", "limiter" ],
+    "author": "Lars Jacob <lars@iamat.com>",
+    "main": "./index.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/jaclar/slowloris.git"
+    }
+}
